@@ -1,0 +1,83 @@
+name:           avl-auth
+version:        0.1.0.0
+description:    Authenticated AVL+ Tree
+homepage:       https://github.com/oscoin/avl-auth
+bug-reports:    https://github.com/oscoin/avl-auth/issues
+author:         Alexis Sellier
+maintainer:     alexis@monadic.xyz
+copyright:      2018 Monadic
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/oscoin/avl-auth
+
+library
+  exposed-modules:
+      Crypto.Data.Auth.Tree
+      Crypto.Data.Auth.Tree.Proof
+      Crypto.Data.Auth.Tree.Internal
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , cryptonite
+    , bytestring
+    , memory
+    , binary
+  default-language: Haskell2010
+  default-extensions:
+      DeriveFoldable
+    , DeriveFunctor
+    , DeriveGeneric
+    , DeriveTraversable
+    , NamedFieldPuns
+    , OverloadedStrings
+    , RankNTypes
+    , RecordWildCards
+    , ScopedTypeVariables
+    , StrictData
+    , TypeApplications
+    , ViewPatterns
+    , GeneralizedNewtypeDeriving
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      avl-auth
+    , base >=4.7 && <5
+    , cryptonite
+    , bytestring
+    , memory
+    , binary
+    , containers
+    , tasty
+    , tasty-hunit
+    , tasty-quickcheck
+    , QuickCheck
+    , HUnit
+    , quickcheck-instances
+  default-language: Haskell2010
+  default-extensions:
+      DeriveFoldable
+    , DeriveFunctor
+    , DeriveGeneric
+    , DeriveTraversable
+    , NamedFieldPuns
+    , OverloadedStrings
+    , RankNTypes
+    , RecordWildCards
+    , ScopedTypeVariables
+    , StrictData
+    , TypeApplications
+    , ViewPatterns
+    , GeneralizedNewtypeDeriving
